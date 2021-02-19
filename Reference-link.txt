@@ -1,0 +1,5 @@
+https://stackoverflow.com/questions/49284508/dynamic-subnet-mappings-for-aws-lb/57760953
+https://medium.com/@sahityamaruvada/setting-up-aws-network-load-balancer-with-terraform-0-12-b87e75992949#d693
+https://medium.com/@sahityamaruvada/setting-up-aws-network-load-balancer-with-terraform-0-12-b87e75992949
+https://www.bogotobogo.com/DevOps/Terraform/Terraform-VPC-Subnet-ELB-RouteTable-SecurityGroup-Apache-Server-2.php
+

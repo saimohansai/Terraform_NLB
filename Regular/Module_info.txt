@@ -1,0 +1,13 @@
+This Module have below info
+1:-
+    1 VPC
+2:-
+    3 Public subnets ->IGW-> ROUT
+    3 private subnets->EIP->NAT->ROUT
+
+3:-
+    3 instances in public # install Nginx in instance
+    3 instances in private
+4:-
+    Create target Group and attach public instance
+    create Network load balance  and attach target group
