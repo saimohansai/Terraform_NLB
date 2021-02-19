@@ -46,16 +46,7 @@ resource "aws_instance" "public" {
   subnet_id = aws_subnet.public[count.index].id
   vpc_security_group_ids = ["${aws_security_group.Allow-all.id}"]
   key_name = "Terraform"
-
-  user_data = "${file("/home/mohansai/Automation/Terraform/NLB/Module/module/package_install-${count.index}.sh")}"
-  #user_data = ${file("${path.module}package_install-${count.index}.sh"}
-  #user_data = "${"package_install"${count.index}.sh}"
-  #Name = "${var.Subnet-public}-${count.index}"
-  #user_data = "${file("install_apache.sh")}"
-  #user_data = "${file((var.public-file)-${count.index}.sh)}"
-  #public-file
-  #user_data = "${file("package_install-${count.index}.sh")}"
-  #user_data = "${"package_install-0.sh"}"
+  user_data = "${file("module/package_install-${count.index}.sh")}"
   #"Personal-Private-${count.index}"
   #associate_public_ip_address = true
   tags = {
