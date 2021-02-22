@@ -19,17 +19,9 @@ module "Dev_vpc" {
 
 }
 
-output "public-subnet-ids" {
-  value = "${module.Dev_vpc.public-sub-ids}"
+output "my_vpc_id" {
+  value = "${module.Dev_vpc.subnet_cidr_blocks}"
 }
-
-output "private-subnet-ids1" {
-  value = "${module.Dev_vpc.private-sub-ids1}"
-}
-
-//output "private-subnet-ids" {
-//  value = "${module.Dev_vpc.public-sub-ids}"
-//}
 //#resource "null_resource" "before" {}
 //resource "null_resource" "delay" {
 //

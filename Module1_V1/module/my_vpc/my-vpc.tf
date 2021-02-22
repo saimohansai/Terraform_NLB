@@ -67,8 +67,7 @@ resource "aws_subnet" "private" {
   #cidr_block ="${cidrsubnet(var.vpc-cidr,8,count.index+length(var.azs))}"
   availability_zone = "${element(var.azs,count.index )}"
   tags = {
-    #Name = "${var.Subnet-private}-${count.index}"
-    Name= "Private"
+    Name = "${var.Subnet-private}-${count.index}"
   }
 }
 
@@ -143,36 +142,25 @@ resource "aws_security_group" "Allow-all" {
 //output "subnetids-info" {
 //  value = [for s in data.aws_subnet.subnetids: s.c]
 //}
-#---------------------------------------------------------
-# subnet info private and public subnet ids
-data "aws_subnet_ids" "public" {
+
+data "aws_subnet_ids" "example" {
   vpc_id = aws_vpc.my-aws.id
-  filter {
-    name   = "tag:Name"
-    values = ["Private"] # insert values here
-  }
-}
-data "aws_subnet" "public_subnet" {
-  count = "${length(data.aws_subnet_ids.public.ids)}"
-  id    = "${tolist(data.aws_subnet_ids.public.ids)[count.index]}"
 }
 
-output "public-sub-ids" {
-  value = "${data.aws_subnet.public_subnet.*.id}"
+//data "aws_subnet" "example" {
+//  for_each = data.aws_subnet_ids.example.ids
+//  id       = each.value
+//}
+//
+//output "subnet_cidr_blocks" {
+//  #value = [for s in data.aws_subnet.example : s.cidr_block]
+//  value = [for s in data.aws_subnet.example : s.c]
+//}
+data "aws_subnet" "test_subnet" {
+  count = "${length(data.aws_subnet_ids.example.ids)}"
+  id    = "${tolist(data.aws_subnet_ids.example.ids)[count.index]}"
 }
 
-data "aws_subnet_ids" "public1" {
-  vpc_id = aws_vpc.my-aws.id
-  filter {
-    name   = "tag:Name"
-    values = ["Public"] # insert values here
-  }
-}
-data "aws_subnet" "public_subnet1" {
-  count = "${length(data.aws_subnet_ids.public1.ids)}"
-  id    = "${tolist(data.aws_subnet_ids.public1.ids)[count.index]}"
-}
-
-output "private-sub-ids1" {
-  value = "${data.aws_subnet.public_subnet1.*.id}"
+output "subnet_cidr_blocks" {
+  value = "${data.aws_subnet.test_subnet.*.id}"
 }

@@ -1,0 +1,105 @@
+{
+  "version": 4,
+  "terraform_version": "0.14.7",
+  "serial": 138,
+  "lineage": "f2d7b3b8-2774-b5ae-00e8-413817073b78",
+  "outputs": {},
+  "resources": [
+    {
+      "module": "module.Dev_Ec2",
+      "mode": "data",
+      "type": "aws_subnet_ids",
+      "name": "public",
+      "provider": "provider[\"registry.terraform.io/-/aws\"]",
+      "instances": []
+    },
+    {
+      "module": "module.Dev_vpc",
+      "mode": "managed",
+      "type": "aws_eip",
+      "name": "Nat_IP",
+      "provider": "module.Dev_vpc.provider[\"registry.terraform.io/-/aws\"]",
+      "instances": []
+    },
+    {
+      "module": "module.Dev_vpc",
+      "mode": "managed",
+      "type": "aws_internet_gateway",
+      "name": "IGW",
+      "provider": "module.Dev_vpc.provider[\"registry.terraform.io/-/aws\"]",
+      "instances": []
+    },
+    {
+      "module": "module.Dev_vpc",
+      "mode": "managed",
+      "type": "aws_nat_gateway",
+      "name": "My_Nat",
+      "provider": "module.Dev_vpc.provider[\"registry.terraform.io/-/aws\"]",
+      "instances": []
+    },
+    {
+      "module": "module.Dev_vpc",
+      "mode": "managed",
+      "type": "aws_route_table",
+      "name": "My_NAT",
+      "provider": "module.Dev_vpc.provider[\"registry.terraform.io/-/aws\"]",
+      "instances": []
+    },
+    {
+      "module": "module.Dev_vpc",
+      "mode": "managed",
+      "type": "aws_route_table",
+      "name": "public_rout",
+      "provider": "module.Dev_vpc.provider[\"registry.terraform.io/-/aws\"]",
+      "instances": []
+    },
+    {
+      "module": "module.Dev_vpc",
+      "mode": "managed",
+      "type": "aws_route_table_association",
+      "name": "Private_NAT",
+      "provider": "module.Dev_vpc.provider[\"registry.terraform.io/-/aws\"]",
+      "instances": []
+    },
+    {
+      "module": "module.Dev_vpc",
+      "mode": "managed",
+      "type": "aws_route_table_association",
+      "name": "Public-Server",
+      "provider": "module.Dev_vpc.provider[\"registry.terraform.io/-/aws\"]",
+      "instances": []
+    },
+    {
+      "module": "module.Dev_vpc",
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "Allow-all",
+      "provider": "module.Dev_vpc.provider[\"registry.terraform.io/-/aws\"]",
+      "instances": []
+    },
+    {
+      "module": "module.Dev_vpc",
+      "mode": "managed",
+      "type": "aws_subnet",
+      "name": "private",
+      "provider": "module.Dev_vpc.provider[\"registry.terraform.io/-/aws\"]",
+      "instances": []
+    },
+    {
+      "module": "module.Dev_vpc",
+      "mode": "managed",
+      "type": "aws_subnet",
+      "name": "public",
+      "provider": "module.Dev_vpc.provider[\"registry.terraform.io/-/aws\"]",
+      "instances": []
+    },
+    {
+      "module": "module.Dev_vpc",
+      "mode": "managed",
+      "type": "aws_vpc",
+      "name": "my-aws",
+      "provider": "module.Dev_vpc.provider[\"registry.terraform.io/-/aws\"]",
+      "instances": []
+    }
+  ]
+}
